@@ -23,7 +23,19 @@ Notebook structure:
 - Cell D: Final orchestration (instantiate classes, run end‑to‑end)
 
 We recommend using these python libraries: 
-- [requests](https://pypi.org/project/requests/), pandas, matplotlib
+- requests, pandas, matplotlib
+
+### `requests` usage: 
+`requests` is a Python library that makes it easier to send and manage HTTP requests. 
+
+### Guidance on using the `requests` library
+For any HTTP request you make to the Open Brewery DB v1 API, you should
+- Use requests.get(url, params=..., timeout=...), where `url` is the Web API route you want to get info from and `params` are any URL params you need to pass throughn in your request to the Web API
+- Check response.status_code
+- Call response.raise_for_status()
+- Then, return response.json().
+
+Here is a quickstart guide to the `request` library: [Quickstart Guide](https://requests.readthedocs.io/en/latest/user/quickstart/)
 
 ## Deliverables (What we expect at the end)
 Extraction (3NF): CSVs in `extraction-pipeline` representing separate entities and relationships:
